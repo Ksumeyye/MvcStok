@@ -1,0 +1,29 @@
+﻿@using MvcStok.Models.Entities;
+@model List<TBLMUSTERILER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Müşteri Id</th>
+        <th>Müşteri Ad</th>
+        <th>Müşteri Soyad</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    <tbody>
+        @foreach(var mstri in Model)
+            {
+                <tr>
+                    <th>@mstri.MUSTERIID</th>
+                    <td>@mstri.MUSTERIAD</td>
+                    <td>@mstri.MUSTERISOYAD</td>
+                    <th><a href="/Musteri/Sil/@mstri.MUSTERIID"class="btn btn-danger">Sil</a></th>
+                    <th><a href="/Musteri/Guncelle/@mstri.MUSTERIID" class="btn btn-primary">Güncelle</a></th>
+                </tr>
+            }
+    </tbody>
+</table>
+<a href="/Musteri/YeniMusteri/"class="btn btn-success">Yeni Müşteri Ekle</a>
