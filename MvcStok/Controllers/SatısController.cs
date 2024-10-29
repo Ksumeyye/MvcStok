@@ -15,5 +15,12 @@ namespace MvcStok.Controllers
             var satislar=db.TBLSATISLAR.ToList();
             return View(satislar);
         }
+        public ActionResult Sil(int id)
+        {
+            var satıs = db.TBLSATISLAR.Find(id);
+            db.TBLSATISLAR.Remove(satıs);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
