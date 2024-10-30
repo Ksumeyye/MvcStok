@@ -10,26 +10,27 @@
         <th>Ürün Id</th>
         <th>Ürün Adı</th>
         <th>Ürünün Markası</th>
+        <th>Ürün Kategorisi</th>
         <th>Fiyat</th>
         <th>Stok</th>
         <th>Sil</th>
         <th>Güncelle</th>
     </tr>
     <tbody>
-        @foreach (var urn in Model)
+        @foreach (var urunler in Model)
         {
             <tr>
-                <th>@urn.URUNID</th>
-                <td>@urn.URUNAD</td>
-                <td>@urn.MARKA</td>
-                <td>@urn.TBLKATEGORILER.KATEGORIAD</td> <!--Tblkategorilerdeki kategoriadı gelmesi için kullandım.-->
-                <td>@urn.FIYAT</td>
-                <td>@urn.STOK</td>
-                <th><a href="/Urun/Sil/@urn.URUNID" class="btn btn-danger">Sil</a></th>
-                <th><a href="/Urun/Guncelle/@urn.URUNID" class="btn btn-primary">Güncelle</a></th>
+                <td>@urunler.URUNID</td>
+                <td>@urunler.URUNAD</td>
+                <td>@urunler.MARKA</td>
+                <td>@urunler.TBLKATEGORILER.KATEGORIAD</td> <!--Tblkategorilerdeki kategoriadı gelmesi için kullandım.-->
+                <td>@urunler.FIYAT</td>
+                <td>@urunler.STOK</td>
+                <th><a href="/Urun/Sil/@urunler.URUNID" class="btn btn-danger">Sil</a></th>
+                <th><a href="/Urun/UrunGetir/@urunler.URUNID" class="btn btn-primary">Güncelle</a></th>
             </tr>
         }
     </tbody>
 </table>
-<a href="/Kategori/YeniKategori/"class="btn btn-success">Yeni Kategori Ekle</a>
+<a href="/Urun/YeniUrun/"class="btn btn-success">Yeni Ürün Ekle</a>
 

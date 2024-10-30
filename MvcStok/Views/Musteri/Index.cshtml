@@ -12,6 +12,7 @@
         <th>Müşteri Soyad</th>
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Alert</th>
     </tr>
     <tbody>
         @foreach(var mstri in Model)
@@ -21,7 +22,8 @@
                     <td>@mstri.MUSTERIAD</td>
                     <td>@mstri.MUSTERISOYAD</td>
                     <th><a href="/Musteri/Sil/@mstri.MUSTERIID"class="btn btn-danger">Sil</a></th>
-                    <th><a href="/Musteri/Guncelle/@mstri.MUSTERIID" class="btn btn-primary">Güncelle</a></th>
+                    <th><a href="/Musteri/MusteriGetir/@mstri.MUSTERIID" class="btn btn-primary">Güncelle</a></th>
+                    <td>@Html.ActionLink("Sil Butonu", "Sıl", new { id=mstri.MUSTERIID }, new {@class="btn btn-warning",onclick="return confirm('Gerçekten Silmek İstiyor Musunuz?')"})</td>
                 </tr>
             }
     </tbody>

@@ -11,7 +11,8 @@ namespace MvcStok.Models.Entities
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TBLURUNLER
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,10 +22,14 @@ namespace MvcStok.Models.Entities
         }
     
         public int URUNID { get; set; }
+        [Required(ErrorMessage = "Ürün Adýný Boþ Býrakamazsýnýz.")]
         public string URUNAD { get; set; }
+        [Required(ErrorMessage = "Ürün Markasýný Boþ Býrakamazsýnýz.")]
         public string MARKA { get; set; }
         public Nullable<int> URUNKATEGORI { get; set; }
+        [Required(ErrorMessage = "Ürünün Fiyatýný Boþ Býrakamazsýnýz.")]
         public Nullable<decimal> FIYAT { get; set; }
+        [Required(ErrorMessage = "Ürün Stoðunu Boþ Býrakamazsýnýz.")]
         public Nullable<byte> STOK { get; set; }
     
         public virtual TBLKATEGORILER TBLKATEGORILER { get; set; }
