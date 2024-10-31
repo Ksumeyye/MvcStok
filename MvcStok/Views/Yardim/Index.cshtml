@@ -13,23 +13,26 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">MvcStok Hakkında Sorular ve Cevaplar</h2>
+                <h2 class="modal-title"><b>MvcStok Hakkında Sorular ve Cevaplar</b></h2>
             </div>
             <form method="post" action="/Yardim/Index/">
-                <div class="modal-body">
-                    @foreach (var yrdm in Model)
-                    {
-                        <tr>
-                            <th>@yrdm.YardimID</th>
-                            <br/>
-                            <td>@yrdm.Soru</td>
-                            <br/>
-                            <td>@yrdm.Cevap</td>
-                            <br/>
-                        </tr>
-
-                    }
+                <div class="resim-container">
+                    <img src="https://r.resimlink.com/jzTZf.jpg" alt="" width="72" height="72">
                 </div>
+                    <div class="modal-body">
+
+                        @foreach (var yrdm in Model)
+                        {
+                            <tr>
+                                <br />
+                                <td><b>@yrdm.YardimID . @yrdm.Soru</b></td>
+                                <br />
+                                <td>@yrdm.Cevap</td>
+                                <br />
+                            </tr>
+
+                        }
+                    </div>
             </form>
         </div>
     </div>
