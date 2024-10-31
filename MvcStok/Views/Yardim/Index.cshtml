@@ -1,0 +1,37 @@
+﻿@using MvcStok.Models.Entities
+@model List<TBLYARDIM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Sana Nasıl Yardımcı Olabilirim?
+</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">MvcStok Hakkında Sorular ve Cevaplar</h2>
+            </div>
+            <form method="post" action="/Yardim/Index/">
+                <div class="modal-body">
+                    @foreach (var yrdm in Model)
+                    {
+                        <tr>
+                            <th>@yrdm.YardimID</th>
+                            <br/>
+                            <td>@yrdm.Soru</td>
+                            <br/>
+                            <td>@yrdm.Cevap</td>
+                            <br/>
+                        </tr>
+
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

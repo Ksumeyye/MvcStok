@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MvcDbStokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MvcDbStokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -51,6 +51,14 @@
           <Property Name="FIYAT" Type="decimal" Precision="18" Scale="2" />
           <Property Name="STOK" Type="tinyint" />
         </EntityType>
+        <EntityType Name="TBLYARDIM">
+          <Key>
+            <PropertyRef Name="YardimID" />
+          </Key>
+          <Property Name="YardimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Soru" Type="varchar" MaxLength="100" />
+          <Property Name="Cevap" Type="varchar" MaxLength="150" />
+        </EntityType>
         <Association Name="FK_TBLSATISLAR_TBLMUSTERILER">
           <End Role="TBLMUSTERILER" Type="Self.TBLMUSTERILER" Multiplicity="0..1" />
           <End Role="TBLSATISLAR" Type="Self.TBLSATISLAR" Multiplicity="*" />
@@ -93,6 +101,7 @@
           <EntitySet Name="TBLMUSTERILER" EntityType="Self.TBLMUSTERILER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLSATISLAR" EntityType="Self.TBLSATISLAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLURUNLER" EntityType="Self.TBLURUNLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLYARDIM" EntityType="Self.TBLYARDIM" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_TBLSATISLAR_TBLMUSTERILER" Association="Self.FK_TBLSATISLAR_TBLMUSTERILER">
             <End Role="TBLMUSTERILER" EntitySet="TBLMUSTERILER" />
             <End Role="TBLSATISLAR" EntitySet="TBLSATISLAR" />
@@ -106,8 +115,7 @@
             <End Role="TBLURUNLER" EntitySet="TBLURUNLER" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MvcDbStokModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -217,7 +225,16 @@
             <End Role="TBLURUNLER" EntitySet="TBLURUNLER" />
             <End Role="TBLSATISLAR" EntitySet="TBLSATISLAR" />
           </AssociationSet>
+          <EntitySet Name="TBLYARDIM" EntityType="MvcDbStokModel.TBLYARDIM" />
         </EntityContainer>
+        <EntityType Name="TBLYARDIM">
+          <Key>
+            <PropertyRef Name="YardimID" />
+          </Key>
+          <Property Name="YardimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Soru" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Cevap" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -272,6 +289,15 @@
                 <ScalarProperty Name="URUNKATEGORI" ColumnName="URUNKATEGORI" />
                 <ScalarProperty Name="FIYAT" ColumnName="FIYAT" />
                 <ScalarProperty Name="STOK" ColumnName="STOK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLYARDIM">
+            <EntityTypeMapping TypeName="MvcDbStokModel.TBLYARDIM">
+              <MappingFragment StoreEntitySet="TBLYARDIM">
+                <ScalarProperty Name="Cevap" ColumnName="Cevap" />
+                <ScalarProperty Name="Soru" ColumnName="Soru" />
+                <ScalarProperty Name="YardimID" ColumnName="YardimID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

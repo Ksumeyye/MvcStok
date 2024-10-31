@@ -4,18 +4,26 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-
-<table class="table table-ordered">
-    <tr>
-        <th>Ürün Id</th>
-        <th>Ürün Adı</th>
-        <th>Ürünün Markası</th>
-        <th>Ürün Kategorisi</th>
-        <th>Fiyat</th>
-        <th>Stok</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-    </tr>
+@*@using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+{//Arama İçin yapılır.
+    <p>
+        <b>Aranacak Ürün Adı:</b>@Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}*@
+<table id="tbl1" class="table table-ordered">
+    <thead>
+        <tr>
+            <th>Ürün Id</th>
+            <th>Ürün Adı</th>
+            <th>Ürünün Markası</th>
+            <th>Ürün Kategorisi</th>
+            <th>Fiyat</th>
+            <th>Stok</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
     <tbody>
         @foreach (var urunler in Model)
         {
@@ -32,5 +40,9 @@
         }
     </tbody>
 </table>
-<a href="/Urun/YeniUrun/"class="btn btn-success">Yeni Ürün Ekle</a>
-
+<a href="/Urun/YeniUrun/" class="btn btn-success">Yeni Ürün Ekle</a>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+<script>
+    $('#tbl1').DataTable();
+</script>

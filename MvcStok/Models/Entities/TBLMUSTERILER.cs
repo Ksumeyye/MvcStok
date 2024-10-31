@@ -11,8 +11,7 @@ namespace MvcStok.Models.Entities
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class TBLMUSTERILER
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,12 +19,9 @@ namespace MvcStok.Models.Entities
         {
             this.TBLSATISLAR = new HashSet<TBLSATISLAR>();
         }
-        
+    
         public int MUSTERIID { get; set; }
-        [Required(ErrorMessage = "Müþteri Adýný Boþ Býrakamazsýnýz.")]
-        [StringLength(50,ErrorMessage ="En Fazla 50 Karakterlik Ýsim Giriniz")]
         public string MUSTERIAD { get; set; }
-        [Required(ErrorMessage = "Müþteri Soyadýný Boþ Býrakamazsýnýz.")]
         public string MUSTERISOYAD { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

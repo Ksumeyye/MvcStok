@@ -9,11 +9,22 @@ namespace MvcStok.Controllers
     public class SatısController : Controller
     {
         // GET: Satıs
-        MvcDbStokEntities db=new MvcDbStokEntities();
+        MvcDbStokEntities db = new MvcDbStokEntities();
         public ActionResult Index()
         {
-            var satislar=db.TBLSATISLAR.ToList();
-            return View(satislar);
+            return View();
+        }
+        [HttpGet]
+        public ActionResult YeniSatis()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult YeniSatis(TBLSATISLAR p)
+        {
+            db.TBLSATISLAR.Add(p);
+            db.SaveChanges();
+            return View("Index");
         }
         public ActionResult Sil(int id)
         {

@@ -30,5 +30,6 @@ namespace MvcStok.Models.Entities
         public virtual DbSet<TBLMUSTERILER> TBLMUSTERILER { get; set; }
         public virtual DbSet<TBLSATISLAR> TBLSATISLAR { get; set; }
         public virtual DbSet<TBLURUNLER> TBLURUNLER { get; set; }
+        public virtual DbSet<TBLYARDIM> TBLYARDIM { get; set; }
     }
 }
