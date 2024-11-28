@@ -1,5 +1,5 @@
 # MvcStok -MVC5 ile Müşteri Satış Takip Sitemi Projesi </br>
-İçerisinde Kategoriler, Ürünler, Müşteriler,Satış ilişkileri ve Yardım bulunan MVC5 projemdir.</br>
+İçerisinde Kategoriler, Ürünler, Müşteriler, Satış ilişkileri ve Yardım bulunan MVC5 projemdir.</br>
 # Kullanılanlar: </br>
 Kategori, Müşteri ve Yeni Ürün Eklerken Satış da Gerçekleştirme</br>
 CRUD İşlemleri</br>
