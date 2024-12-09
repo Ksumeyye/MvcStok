@@ -7,7 +7,7 @@ Kategori, Ürün, Müşteri Silme</br>
 Alert Kullanımı</br>
 MVC5</br>
 HttpGet ve HttpPost Attributelarının Controller tarafında kullanımları ve işlevselliği</br>
-Paging</br>
+Pagging</br>
 DropDownList Kullanımı ve DropDownList ile DB 'den veri çekme</br>
 Validation Kontrolleri Required, StringLength Validation Kullanımı</br>
 Linq Sorguları</br>
